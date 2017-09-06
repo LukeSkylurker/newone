@@ -1,0 +1,138 @@
+div style="background-color: #faebd7; width: 55%; float:left; border:3px solid grey;"">
+<h3 style="color:blue">1) Convert fund list between NF &amp; NMF <br/> 2) between PROD &amp; STAGING for all.. <br/>NF (fund profiles)<br/>NMF (fund profiles) <br/>NW (ALL .com)</h3>
+
+<div id="demo" style="background-color: white;">
+<p contenteditable="true" style="border:2px solid; width: 99%;">
+ENTER URL(s) HERE<br/>
+  <br/>
+  <br/>
+  <br/>
+ </p>
+</div>
+<h2>1. Convert between NF and NMF <em>fund profile</em> production links</h2>
+<button style="font-size: 16px;" onclick="myFunctionConvert()">NF PROD to NMF PROD</button>
+
+<script>
+function myFunctionConvert() {
+    for (i=0;i<400;i++){
+    var strCon = document.getElementById("demo").innerHTML; 
+    var resCon = strCon.replace("https://nationwidefinancial.com/#!/products/mutual-funds/fund-list/fund-details?ticker=", "https://mutualfunds.nationwide.com/mutualfunds/#!/fundprofile/");
+    document.getElementById("demo").innerHTML = resCon;
+    var strConv = document.getElementById("demo").innerHTML;
+    var resConv = strConv.replace("&amp;tabView", "?tabView");
+    document.getElementById("demo").innerHTML = resConv;
+}
+}
+</script>
+<button style="font-size: 16px;" onclick="myFunctionConvert1()">NMF PROD to NF PROD</button>
+
+<script>
+function myFunctionConvert1() {
+    for (i=0;i<400;i++){
+    var strCon1 = document.getElementById("demo").innerHTML; 
+    var resCon1 = strCon1.replace("https://mutualfunds.nationwide.com/mutualfunds/#!/fundprofile/", "https://nationwidefinancial.com/#!/products/mutual-funds/fund-list/fund-details?ticker=");
+    document.getElementById("demo").innerHTML = resCon1;
+    var strConv1 = document.getElementById("demo").innerHTML;
+    var resConv1 = strConv1.replace("?tabView", "&amp;tabView");
+    document.getElementById("demo").innerHTML = resConv1;
+}
+}
+</script>
+<br/>
+<br/>
+<h2>2. Convert <em>NW</em> or <em>NF</em>(including mutual fund subdomain) links into STG links:</h2>
+
+<button style="font-size: 16px;" onclick="myFunction()">Convert from <strong>NF PROD</strong> to <strong>NF STG</strong></button>
+
+<script>
+function myFunction() {
+    var str = document.getElementById("demo").innerHTML; 
+    var res = str.replace(/com/g, "nwie.net");
+    document.getElementById("demo").innerHTML = res;
+    var str1 = document.getElementById("demo").innerHTML;
+    var res1 = str1.replace(/nationwide/g, "stg-nationwide");
+    document.getElementById("demo").innerHTML = res1;
+}
+</script>
+<button style="font-size: 16px;" onclick="myFunctionReverse()">Convert from <strong>NF STG</strong> to <strong>NF PROD</strong></button>
+
+<script>
+function myFunctionReverse() {
+	  for (i=0;i<400;i++){
+    var strRev = document.getElementById("demo").innerHTML; 
+    var resRev = strRev.replace("nwie.net", "com");
+    document.getElementById("demo").innerHTML = resRev;
+    var strRev1 = document.getElementById("demo").innerHTML;
+    var resRev1 = strRev1.replace("stg-nationwide", "nationwide");
+    document.getElementById("demo").innerHTML = resRev1;
+}
+}
+</script>
+
+<br/>
+<br/>
+<button style="font-size: 16px;" onclick="myFunction5()">Convert to <strong>NMF PROD</strong> to <strong>NMF STG</strong></button>
+
+<script>
+function myFunction5 (){
+for (i=0;i<400;i++){
+    var strM = document.getElementById("demo").innerHTML; 
+    var resM = strM.replace("com", "nwie.net");
+    document.getElementById("demo").innerHTML = resM;
+    var strM2 = document.getElementById("demo").innerHTML;
+    var resM2 = strM2.replace("https://mutualfunds", "https://stg-mutualfunds");
+    document.getElementById("demo").innerHTML = resM2;
+}
+}
+</script>
+<button style="font-size: 16px;" onclick="myFunctionReverse5()">Convert from <strong>NMF STG</strong> to <strong>NMF PROD</strong></button>
+
+<script>
+function myFunctionReverse5 (){
+for (i=0;i<400;i++){
+    var strMrev = document.getElementById("demo").innerHTML; 
+    var resMrev = strMrev.replace("nwie.net","com");
+    document.getElementById("demo").innerHTML = resMrev;
+    var strMrev2 = document.getElementById("demo").innerHTML;
+    var resMrev2 = strMrev2.replace("https://stg-mutualfunds","https://mutualfunds");
+    document.getElementById("demo").innerHTML = resMrev2;
+}
+}
+</script>
+<br/>
+<br/>
+<button style="font-size: 16px;" onclick="myFunction2()">Convert from <strong>NW PROD</strong> to <strong>NW STG</strong></button>
+
+<script>
+function myFunction2() {
+    var str2 = document.getElementById("demo").innerHTML; 
+    var res2 = str2.replace(/com/g, "nwie.net");
+    document.getElementById("demo").innerHTML = res2;
+    var str3 = document.getElementById("demo").innerHTML;
+    var res3 = str3.replace(/nationwide/g, "staging.nationwide");
+    document.getElementById("demo").innerHTML = res3;
+}
+</script>
+<button style="font-size: 16px;" onclick="myFunctionReverse2()">Convert from <strong>NW STG</strong> to <strong>NW PROD</strong></button>
+
+<script>
+function myFunctionReverse2() {
+	for (i=0;i<400;i++){
+    var strRev2 = document.getElementById("demo").innerHTML; 
+    var resRev2 = strRev2.replace("nwie.net","com");
+    document.getElementById("demo").innerHTML = resRev2;
+    var strRev3 = document.getElementById("demo").innerHTML;
+    var resRev3 = strRev3.replace("staging.nationwide", "nationwide");
+    document.getElementById("demo").innerHTML = resRev3;
+}
+}
+</script>
+<br/>
+<br/>
+<button style="font-size: 16px;" onclick="myFunction3()">Clear</button>
+<script>
+function myFunction3() {
+    location.reload();
+}
+</script>
+</div>
